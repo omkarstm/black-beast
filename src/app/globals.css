@@ -98,10 +98,10 @@ color: var(--red)
 }
 
 .hero{
-  background-image: url("../../public/image/herobg-2.avif");
+  background-image: url("../../public/image/hero-3.avif");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 650px;
+  height: 700px;
   mix-blend-mode:multiply;
 }
 
