@@ -41,7 +41,7 @@ const Header: React.FC = () => {
             </li>
           </ul>
         </nav>
-        <Link href={"tel:+91 7644015588"} className=' text-red gap-2 hidden md:flex'>
+        <Link href={"tel:+91 7644015588"} className=' text-black gap-2 hidden md:flex'>
           <PhoneIncoming />
           <p className='font-medium'>+91 7644015588</p>
         </Link>
@@ -66,7 +66,7 @@ const Header: React.FC = () => {
                     <li className=' border-b border-b-gray-300 pb-2'>
                       <Link href={"#"} className='font-medium'>Contact</Link>
                     </li>
-                    <li className=' bg-red py-2 rounded-sm pb-2'>
+                    <li className=' bg-black py-2 rounded-sm pb-2'>
                       <Link href={"tel:+91 7644015588"} className=' text-white gap-2 flex justify-center'>
                         <PhoneIncoming />
                         <p className='font-medium'>+91 7644015588</p>
