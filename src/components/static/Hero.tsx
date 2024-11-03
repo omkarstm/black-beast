@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
                         <p className="text-[16px] md:text-xl text-white  ">
                             Self-drive or with a driver, our <strong>24/7</strong> car rentals are ready for you at just ₹99 per hour!
                         </p>
-                        <Button className="mt-8 bg-white text-black">See cars</Button>
+                        <Button className="mt-8" variant={'secondary'}>See cars</Button>
                     </div>
                 </div>
             </div>
