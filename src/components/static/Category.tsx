@@ -17,7 +17,7 @@ const Category: React.FC = () => {
                     <Card className="md:w-[48%] lg:w-[32%]">
                         <CardHeader className="pb-0">
                             <Image src={"/image/luxury-car.avif"} width={370} height={300} alt="Luxury cars" />
-                            <CardTitle className="text-xl font-bold">Luxury Cars</CardTitle>
+                            <CardTitle className="text-xl font-bold">Suv</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <ul className="text-gray-600 list-disc ml-4 mt-2 text-start">
@@ -32,7 +32,7 @@ const Category: React.FC = () => {
                     <Card className="md:w-[48%] lg:w-[32%] mt-4 md:mt-0">
                         <CardHeader className="pb-0">
                             <Image src={"/image/scarpio.avif"} width={370} height={300} alt="Normal cars" />
-                            <CardTitle className="text-xl font-bold mb-0">Normal Cars</CardTitle>
+                            <CardTitle className="text-xl font-bold mb-0">Sedan</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <ul className="text-gray-600 list-disc ml-4 mt-2 text-start">
@@ -47,7 +47,7 @@ const Category: React.FC = () => {
                     <Card className="md:w-[48%] lg:w-[32%] mt-4 md:mt-0">
                         <CardHeader className="pb-0">
                             <Image src={"/image/tractor.avif"} width={370} height={300} alt="Tractors & others" />
-                            <CardTitle className="text-xl font-bold">Tractors & Others</CardTitle>
+                            <CardTitle className="text-xl font-bold">Others</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <ul className="text-gray-600 list-disc ml-4 mt-2 text-start">

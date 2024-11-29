@@ -98,11 +98,16 @@ color: var(--red)
 }
 
 .hero{
-  background-image: url("../../public/image/hero-3.avif");
+  background-image: url("../../public/image/hero-11.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 700px;
-  mix-blend-mode:multiply;
+  mix-blend-mode:darken;
+  background-position: center;
+}
+
+.hero-text{
+  line-height: 0.9;
 }
 
 .contact{

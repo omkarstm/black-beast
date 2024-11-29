@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import Image from 'next/image';
 
 
 
@@ -23,10 +24,11 @@ const Header: React.FC = () => {
 
   return (
     <header className='py-8'>
-      <div className=' container flex justify-between'>
+      <div className=' container flex justify-between items-center'>
         <div className='logo_container flex items-center gap-2'>
-          <CarFront className='text-red' />
-          <p className='text-xl font-bold'><span className='text-red'>Black</span>beast</p>
+          {/* <CarFront className='text-red' />
+          <p className='text-xl font-bold'><span className='text-red'>Black</span>beast</p> */}
+          <Image src={"/image/logo.png"} alt='Logo' height={50} width={150} />
         </div>
         <nav>
           <ul className='md:flex lg:gap-20 md:gap-5 hidden'>
