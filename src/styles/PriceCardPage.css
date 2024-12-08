@@ -1,0 +1,60 @@
+.price-card-container {
+  margin: 2rem 0;
+  .container {
+    .category-heading {
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      color: #ad0303;
+    }
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      margin: 2rem 0;
+      gap: 2rem;
+      .car-card {
+        background: #fff;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border-radius: 10px;
+        padding: 2rem;
+        .content-box {
+          display: flex;
+          justify-content: space-between;
+          .left-box {
+            display: flex;
+            gap: 2rem;
+            .image-box {
+              text-align: center;
+              text-transform: capitalize;
+              font-weight: bold;
+              color: #ad0303;
+              font-size: 20px;
+            }
+            .vertical-line {
+              height: 100%;
+              width: 1px;
+              background-color: #cecece;
+            }
+            .self-drive-box {
+              display: flex;
+              justify-content: center;
+              flex-direction: column;
+              gap: 0.5rem;
+              .self-drive{
+                font-weight: bold;
+                color: #ad0303;
+              }
+              .price-details {
+                color: #000000b0;
+                display: flex;
+                gap: 0.2rem;
+                flex-direction: column;
+                justify-content: space-between;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

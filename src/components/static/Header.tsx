@@ -23,7 +23,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className='py-8'>
+    <header className='py-4'>
       <div className=' container flex justify-between items-center'>
         <div className='logo_container flex items-center gap-2'>
           {/* <CarFront className='text-red' />
@@ -43,9 +43,9 @@ const Header: React.FC = () => {
             </li>
           </ul>
         </nav>
-        <Link href={"tel:+91 7644015588"} className=' text-black gap-2 hidden md:flex'>
+        <Link href={"tel:+91 9929974214"} className=' text-black gap-2 hidden md:flex'>
           <PhoneIncoming />
-          <p className='font-medium'>+91 7644015588</p>
+          <p className='font-medium'>+91 9929974214</p>
         </Link>
 
         <div  className="block md:hidden">
@@ -69,9 +69,9 @@ const Header: React.FC = () => {
                       <Link href={"#"} className='font-medium'>Contact</Link>
                     </li>
                     <li className=' bg-black py-2 rounded-sm pb-2'>
-                      <Link href={"tel:+91 7644015588"} className=' text-white gap-2 flex justify-center'>
+                      <Link href={"tel:+91 9929974214"} className=' text-white gap-2 flex justify-center'>
                         <PhoneIncoming />
-                        <p className='font-medium'>+91 7644015588</p>
+                        <p className='font-medium'>+91 9929974214</p>
                       </Link>
                     </li>
                   </ul>
