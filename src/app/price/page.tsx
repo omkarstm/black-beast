@@ -6,7 +6,7 @@ import Nav from "@/components/static/Nav";
 import PriceCard from "@/components/static/PriceCard";
 import { useSearchParams } from "next/navigation";
 
-export default function Home() {
+export default function PricePage() {
     const searchParams = useSearchParams();
     const category = searchParams.get("category");
 
@@ -21,7 +21,9 @@ export default function Home() {
                         <PriceCard category={category === "All Vehicle" ? "all" : category} />
                     </section>
                 ) : (
-                    <p>Please select a category to see pricing details.</p>
+                    <div>
+                        <p>Please select a category to see pricing details.</p>
+                    </div>
                 )}
                 <Footer />
             </main>
