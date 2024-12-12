@@ -31,11 +31,15 @@ const Category: React.FC = () => {
                         </CardHeader>
                         <CardContent>
                             <ul className="text-gray-600 list-disc ml-4 mt-2 text-start">
-                                <li>High-end features and amenities</li>
-                                <li>Premium interiors for maximum comfort</li>
-                                <li>Powerful engines for smooth rides</li>
-                                <li>Advanced safety features</li>
-                                <li>Stylish design with sleek aesthetics</li>
+                                <li>
+                                    Brand-New 2024 Models
+                                </li>
+                                <li>
+                                    Top Model Options
+                                </li>
+                                <li>
+                                    Fully Maintained & Ready
+                                </li>
                             </ul>
                         </CardContent>
                     </Card>
@@ -49,11 +53,15 @@ const Category: React.FC = () => {
                         </CardHeader>
                         <CardContent>
                             <ul className="text-gray-600 list-disc ml-4 mt-2 text-start">
-                                <li>Affordable and budget-friendly</li>
-                                <li>Efficient fuel economy</li>
-                                <li>Comfortable seating for daily use</li>
-                                <li>Easy handling and maneuverability</li>
-                                <li>Reliable performance for city driving</li>
+                                <li>
+                                    Brand-New 2024 Models
+                                </li>
+                                <li>
+                                    Top Model Options
+                                </li>
+                                <li>
+                                    Fully Maintained & Ready
+                                </li>
                             </ul>
                         </CardContent>
                     </Card>
@@ -67,11 +75,15 @@ const Category: React.FC = () => {
                         </CardHeader>
                         <CardContent>
                             <ul className="text-gray-600 list-disc ml-4 mt-2 text-start">
-                                <li>Heavy-duty for agricultural work</li>
-                                <li>High horsepower for tough terrain</li>
-                                <li>Large tires for stability</li>
-                                <li>Durable and long-lasting construction</li>
-                                <li>Versatile for multiple attachments</li>
+                                <li>
+                                    Brand-New 2024 Models
+                                </li>
+                                <li>
+                                    Top Model Options
+                                </li>
+                                <li>
+                                    Fully Maintained & Ready
+                                </li>
                             </ul>
                         </CardContent>
                     </Card>

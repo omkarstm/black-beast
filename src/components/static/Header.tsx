@@ -2,7 +2,7 @@
 
 import { CarFront, Menu, PhoneIncoming } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
   Sheet,
   SheetContent,
@@ -21,13 +21,17 @@ const Header: React.FC = () => {
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
+  const handleScroll = useCallback(() => {
+    const section = document.getElementById('contact');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, []);
 
   return (
     <header className='py-4'>
       <div className=' container flex justify-between items-center'>
         <div className='logo_container flex items-center gap-2'>
-          {/* <CarFront className='text-red' />
-          <p className='text-xl font-bold'><span className='text-red'>Black</span>beast</p> */}
           <Image src={"/image/logo.png"} alt='Logo' height={50} width={150} />
         </div>
         <nav>
@@ -36,11 +40,11 @@ const Header: React.FC = () => {
               <Link href={"#"} className='font-medium'>Best Cars</Link>
             </li>
             <li>
-              <Link href={"#"} className='font-medium'>Pricing</Link>
+              <Link href={"/price?category=All Vehicle"} className='font-medium'>Pricing</Link>
             </li>
-            <li>
-              <Link href={"#"} className='font-medium'>Contact</Link>
-            </li>
+            <button onClick={handleScroll} className="font-medium">
+          Contact
+        </button>
           </ul>
         </nav>
         <Link href={"tel:+91 9929974214"} className=' text-black gap-2 hidden md:flex'>
@@ -63,12 +67,9 @@ const Header: React.FC = () => {
                       <Link href={"#"} className='font-medium'>Best Cars</Link>
                     </li>
                     <li className=' border-b border-b-gray-300 pb-2'>
-                      <Link href={"#"} className='font-medium'>Pricing</Link>
+                      <Link href={"/price?category=all"} className='font-medium'>Pricing</Link>
                     </li>
-                    <li className=' border-b border-b-gray-300 pb-2'>
-                      <Link href={"#"} className='font-medium'>Contact</Link>
-                    </li>
-                    <li className=' bg-black py-2 rounded-sm pb-2'>
+                    <li className=' bg-[#1a1a1a] py-2 rounded-sm pb-2'>
                       <Link href={"tel:+91 9929974214"} className=' text-white gap-2 flex justify-center'>
                         <PhoneIncoming />
                         <p className='font-medium'>+91 9929974214</p>

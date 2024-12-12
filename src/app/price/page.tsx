@@ -18,7 +18,7 @@ export default function Home() {
             <main>
                 {category ? (
                     <section className="price-card-section">
-                        <PriceCard category={category} />
+                        <PriceCard category={category === "All Vehicle" ? "all" : category} />
                     </section>
                 ) : (
                     <p>Please select a category to see pricing details.</p>

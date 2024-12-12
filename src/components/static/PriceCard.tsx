@@ -47,7 +47,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ category }) => {
             twelveHour: "Rs.3000",
             oneDayHour: "Rs.4500",
           },
-          image: "/image/thar.jpg",
+          image: "/image/scorpio.png",
         },
       ],
     },
@@ -64,7 +64,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ category }) => {
             twelveHour: "Rs.1500",
             oneDayHour: "Rs.2500",
           },
-          image: "/image/thar.jpg",
+          image: "/image/dzire.jpg",
         },
       ],
     },
@@ -81,7 +81,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ category }) => {
             twelveHour: "Rs.1500",
             oneDayHour: "Rs.2500",
           },
-          image: "/image/thar.jpg",
+          image: "/image/scorpio.png",
         },
         {
           name: "Duster",
@@ -92,44 +92,46 @@ const PriceCard: React.FC<PriceCardProps> = ({ category }) => {
             twelveHour: "Rs.1800",
             oneDayHour: "Rs.3000",
           },
-          image: "/image/thar.jpg",
+          image: "/image/duster.jpg",
         },
       ],
     },
   ];
 
-  const selectedCategory = carsData.find((data) => data.category === category);
+  const selectedCars = category === "all"
+    ? carsData.flatMap((data) => data.cars) // Combine all cars from all categories
+    : carsData.find((data) => data.category === category)?.cars || [];
 
   return (
     <div className="price-card-container">
       <div className="container">
         <div className="price-card">
-          <h2 className="category-heading">{category}</h2>
+          <h2 className="category-heading">{category === "all" ? "All Vehicles" : category}</h2>
           <div className="card-container">
-            {selectedCategory ? (
-              selectedCategory.cars.map((car) => (
-                <div key={car.name} className="car-card">
+            {selectedCars.length > 0 ? (
+              selectedCars.map((car, index) => (
+                <div key={`${car.name}-${index}`} className="car-card">
                   <div className="content-box">
                     <div className="left-box">
                       <div className="image-box">
                         <img src={car.image} alt={car.name} width="300" height="200" />
                         <h3>{car.name}</h3>
                       </div>
-                    <div className="vertical-line"></div>
-                    <div className="self-drive-box">
-                    <h4 className="self-drive">Self drive</h4>
-                      <ul className="price-details">
-                        <li>24hr : {car.selfDrive.oneDayHour}</li>
-                        <li>12hr : {car.selfDrive.twelveHour}</li>
-                        <li>03hr : {car.selfDrive.threeHour}</li>
-                        <li>06hr : {car.selfDrive.sixHour}</li>
-                      </ul>
-                    </div>
+                      <div className="vertical-line"></div>
+                      <div className="self-drive-box">
+                        <h4 className="self-drive">Self Drive</h4>
+                        <ul className="price-details">
+                          <li>24hr : {car.selfDrive.oneDayHour}</li>
+                          <li>12hr : {car.selfDrive.twelveHour}</li>
+                          <li>06hr : {car.selfDrive.sixHour}</li>
+                          <li>03hr : {car.selfDrive.threeHour}</li>
+                        </ul>
+                      </div>
                     </div>
                     <div className="right-box">
                       <div className="feature-list">
-                        {car.features.map((feature, index) => (
-                          <p key={index}>{feature}</p>
+                        {car.features.map((feature, idx) => (
+                          <p key={idx}>{feature}</p>
                         ))}
                       </div>
                       <button className="book-now-button">BOOK NOW</button>

@@ -5,12 +5,13 @@
       font-size: 32px;
       font-weight: bold;
       text-align: center;
-      color: #ad0303;
+      color: #1a1a1a;
     }
     .card-container {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       margin: 2rem 0;
+      justify-content: center;
       gap: 2rem;
       .car-card {
         background: #fff;
@@ -18,16 +19,12 @@
         border-radius: 10px;
         padding: 2rem;
         .content-box {
-          display: flex;
-          justify-content: space-between;
           .left-box {
-            display: flex;
-            gap: 2rem;
             .image-box {
               text-align: center;
               text-transform: capitalize;
               font-weight: bold;
-              color: #ad0303;
+              color: #1a1a1a;
               font-size: 20px;
             }
             .vertical-line {
@@ -42,19 +39,54 @@
               gap: 0.5rem;
               .self-drive{
                 font-weight: bold;
-                color: #ad0303;
+                color: #1a1a1a;
+                margin-top: 2rem;
               }
               .price-details {
-                color: #000000b0;
                 display: flex;
-                gap: 0.2rem;
-                flex-direction: column;
+                flex-wrap: wrap;
+                color: #1a1a1a;
+                display: flex;
+                gap: 1rem;
                 justify-content: space-between;
+                margin: 1rem 0 2rem 0;
               }
+            }
+          }
+          .right-box{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+            .book-now-button{
+              background-color: #1a1a1a;
+              padding: 0.4rem 2rem;
+              color: #fff;
+              font-weight: 700;
             }
           }
         }
       }
     }
+  }
+}
+
+@media (min-width:1024px) {
+  .content-box{
+    /* display: flex;
+    justify-content: space-between; */
+  }
+  .left-box{
+    display: flex;
+    gap: 2rem;
+  }
+  .price-details{
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0;
+  }
+  .self-drive{
+    margin: 0;
   }
 }

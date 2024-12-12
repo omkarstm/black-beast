@@ -2,6 +2,7 @@
 
 import React from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import Image from "next/image";
 
 const Map: React.FC = () => {
   const location = {
@@ -26,7 +27,7 @@ const Map: React.FC = () => {
     <div className="py-12">
       <div className="container">
       <h2 className="font-bold text-[30px] mb-8 text-center">Our location</h2>
-        <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}>
+        {/* <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}>
           <GoogleMap
             mapContainerStyle={mapContainerStyle}
             center={location}
@@ -35,7 +36,8 @@ const Map: React.FC = () => {
           >
             <Marker position={location} />
           </GoogleMap>
-        </LoadScript>
+        </LoadScript> */}
+        <Image src={"/image/map.png"} height={200} alt="Map" width={1000} className="mx-auto"/>
       </div>
     </div>
   );
