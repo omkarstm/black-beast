@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
       {
         source: "/price",
         destination: "/price/all",
+        
       },
     ];
   },

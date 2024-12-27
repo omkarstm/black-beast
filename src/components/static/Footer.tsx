@@ -33,23 +33,30 @@ const Footer: React.FC = () => {
             </div>
             <div className="flex gap-2">
               <MapPinCheckInside strokeWidth="1px" />
-              <p>Dumra Sitamarhi, Bihar</p>
+              <p> Rampur Parori East Dumra Sitamarhi</p>
             </div>
             <div className="flex gap-2">
               <Instagram strokeWidth="1px" />
               <p>blackbeastcars</p>
             </div>
           </div>
-         
+
           <div className="flex items-center">
-            <Button variant={"secondary"}>Get in Touch on whatsapp</Button>
+            <a
+              href="https://wa.me/9929974214?text=Hello%20Black%20Beast!"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white py-2 px-5 text-black font-semibold rounded"
+            >
+              Get in Touch on whatsapp
+            </a>
           </div>
         </div>
         <div className="w-[100%] h-[0.2px] bg-[#fff]/30 my-6"></div>
         <div className="flex flex-col text-center justify-between">
 
-      © {new Date().getFullYear()} All rights reserved to Black Beast
-            <a href="#">Terms & Conditions</a>
+          © {new Date().getFullYear()} All rights reserved to Black Beast
+          <a href="#">Terms & Conditions</a>
         </div>
       </div>
     </footer>

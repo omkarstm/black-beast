@@ -26,7 +26,7 @@ const Category: React.FC = () => {
                         onClick={() => handleCategoryClick("Suv")}
                     >
                         <CardHeader className="pb-0">
-                            <Image src={"/image/luxury-car.avif"} width={370} height={300} alt="Luxury cars" />
+                            <Image src={"/image/scarpio.avif"} width={370} height={300} alt="Luxury cars" />
                             <CardTitle className="text-xl font-bold">Suv</CardTitle>
                         </CardHeader>
                         <CardContent>
@@ -48,7 +48,7 @@ const Category: React.FC = () => {
                         onClick={() => handleCategoryClick("Sedan")}
                     >
                         <CardHeader className="pb-0">
-                            <Image src={"/image/scarpio.avif"} width={370} height={300} alt="Normal cars" />
+                            <Image src={"/image/dzire.jpg"} width={370} height={300} alt="Normal cars" />
                             <CardTitle className="text-xl font-bold mb-0">Sedan</CardTitle>
                         </CardHeader>
                         <CardContent>
@@ -70,8 +70,8 @@ const Category: React.FC = () => {
                         onClick={() => handleCategoryClick("Others")}
                     >
                         <CardHeader className="pb-0">
-                            <Image src={"/image/tractor.avif"} width={370} height={300} alt="Tractors & others" />
-                            <CardTitle className="text-xl font-bold">Others</CardTitle>
+                            <Image src={"/image/audi.jpg"} width={370} height={300} alt="Tractors & others" />
+                            <CardTitle className="text-xl font-bold">Premium</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <ul className="text-gray-600 list-disc ml-4 mt-2 text-start">

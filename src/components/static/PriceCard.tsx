@@ -1,106 +1,30 @@
-import React from "react";
-import "../../styles/PriceCardPage.css";
+"use client";
 
-interface CarData {
-  id: number;
-  category: string;
-  cars: {
-    name: string;
-    features: string[];
-    selfDrive: {
-      threeHour: string;
-      sixHour: string;
-      twelveHour: string;
-      oneDayHour: string;
-    };
-    image: string;
-  }[];
-}
+import React from "react";
+import { useDispatch } from "react-redux"; // Import Redux dispatch
+import { useRouter } from "next/navigation"; // Use router for navigation
+import "../../styles/PriceCardPage.css";
+import carsData from "@/data/cardData";
+import { selectCar } from "@/redux/carSlice";
 
 interface PriceCardProps {
   category: string;
 }
 
 const PriceCard: React.FC<PriceCardProps> = ({ category }) => {
-  const carsData: CarData[] = [
-    {
-      id: 1,
-      category: "Suv",
-      cars: [
-        {
-          name: "Thar",
-          features: ["With diesel + Toll tax + parking", "Rs 10/km + vehicle charge"],
-          selfDrive: {
-            threeHour: "Rs.1000",
-            sixHour: "Rs.2000",
-            twelveHour: "Rs.3000",
-            oneDayHour: "Rs.4500",
-          },
-          image: "/image/thar.jpg",
-        },
-        {
-          name: "Scorpio",
-          features: ["With diesel + Toll tax + parking", "Rs 10/km + vehicle charge"],
-          selfDrive: {
-            threeHour: "Rs.1000",
-            sixHour: "Rs.2000",
-            twelveHour: "Rs.3000",
-            oneDayHour: "Rs.4500",
-          },
-          image: "/image/scorpio.png",
-        },
-      ],
-    },
-    {
-      id: 2,
-      category: "Sedan",
-      cars: [
-        {
-          name: "Dzire",
-          features: ["With diesel + Toll tax + parking", "Rs 10/km + vehicle charge"],
-          selfDrive: {
-            threeHour: "Rs.1000",
-            sixHour: "Rs.600",
-            twelveHour: "Rs.1500",
-            oneDayHour: "Rs.2500",
-          },
-          image: "/image/dzire.jpg",
-        },
-      ],
-    },
-    {
-      id: 3,
-      category: "Others",
-      cars: [
-        {
-          name: "Bolero",
-          features: ["With diesel + Toll tax + parking", "Rs 10/km + vehicle charge"],
-          selfDrive: {
-            threeHour: "Rs.1000",
-            sixHour: "Rs.600",
-            twelveHour: "Rs.1500",
-            oneDayHour: "Rs.2500",
-          },
-          image: "/image/scorpio.png",
-        },
-        {
-          name: "Duster",
-          features: ["With diesel + Toll tax + parking", "Rs 10/km + vehicle charge"],
-          selfDrive: {
-            threeHour: "Rs.1200",
-            sixHour: "Rs.800",
-            twelveHour: "Rs.1800",
-            oneDayHour: "Rs.3000",
-          },
-          image: "/image/duster.jpg",
-        },
-      ],
-    },
-  ];
+  const dispatch = useDispatch(); // Initialize dispatch
+  const router = useRouter(); // Initialize router for navigation
 
+  // Filter cars based on the category
   const selectedCars = category === "all"
-    ? carsData.flatMap((data) => data.cars) // Combine all cars from all categories
+    ? carsData.flatMap((data) => data.cars)
     : carsData.find((data) => data.category === category)?.cars || [];
+
+  // Handle car selection
+  const handleCarClick = (car: any) => {
+    dispatch(selectCar(car)); // Dispatch car details to Redux
+    router.push(`/car-details/${car.name}`); // Navigate to the car details page
+  };
 
   return (
     <div className="price-card-container">
@@ -110,7 +34,12 @@ const PriceCard: React.FC<PriceCardProps> = ({ category }) => {
           <div className="card-container">
             {selectedCars.length > 0 ? (
               selectedCars.map((car, index) => (
-                <div key={`${car.name}-${index}`} className="car-card">
+                <div
+                  key={`${car.name}-${index}`}
+                  className="car-card"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleCarClick(car)} // Handle click
+                >
                   <div className="content-box">
                     <div className="left-box">
                       <div className="image-box">
