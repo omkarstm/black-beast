@@ -18,8 +18,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Black Beasts - Car Rental Service Provider | Rent Cars Online | Self Drive Car rent | Sitamarhi",
-  description: "Black beasts, A car rent service provider with Self drive car rent in sitamarhi",
+  title: "Black Beasts - Car Rental Service Provider | Rent Cars Online | Self Drive Cars in Sitamarhi",
+  description:
+    "Black Beasts offers affordable car rental services, including self-drive cars in Sitamarhi. Rent a car online with ease and enjoy your journey.",
   alternates: {
     canonical: "https://www.blackbeasts.in/",
   },
@@ -51,9 +52,44 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CarRental",
+    "name": "Black Beasts",
+    "url": "https://www.blackbeasts.in/",
+    "logo": "https://www.blackbeasts.in/logo.png", // Replace with your logo URL
+    "description": "Black Beasts offers affordable car rental services, including self-drive cars in Sitamarhi. Rent a car online with ease and enjoy your journey.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Your Street Address", // Replace with your business address
+      "addressLocality": "Sitamarhi",
+      "addressRegion": "Bihar",
+      "postalCode": "843302",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-9929974214", 
+      "contactType": "customer service",
+      "areaServed": "IN",
+      "availableLanguage": "Hindi"
+    },
+    "sameAs": [
+      "https://www.instagram.com/blackbeastcars"
+    ],
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 26.56657355, 
+      "longitude": 85.5171692335844 
+    }
+  }
   return (
     <html lang="en">
       <head>
+      <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       <link rel="canonical" href="https://www.blackbeasts.in/" />
       <link rel="alternate" href="https://www.blackbeasts.in/" hrefLang="en-in" />
       </head>
