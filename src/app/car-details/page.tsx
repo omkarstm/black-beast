@@ -2,13 +2,14 @@ import carsData from "@/data/cardData";
 
 interface CarDetailsPageProps {
   params: {
-    name: string;
+    name: string; // The dynamic route segment [name]
   };
 }
 
-const CarDetailsPage: React.FC<CarDetailsPageProps> = ({ params }) => {
+const CarDetailsPage = ({ params }: CarDetailsPageProps) => {
   const { name } = params;
 
+  // Find the car by name
   const car = carsData
     .flatMap((data) => data.cars)
     .find((car) => car.name === decodeURIComponent(name));
@@ -34,7 +35,6 @@ const CarDetailsPage: React.FC<CarDetailsPageProps> = ({ params }) => {
         <li>6hr: {car.selfDrive.sixHour}</li>
         <li>3hr: {car.selfDrive.threeHour}</li>
       </ul>
-      jvuv
       <button>Book Now</button>
     </div>
   );
