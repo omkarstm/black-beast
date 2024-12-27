@@ -18,8 +18,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Black Beasts",
-  description: "Black beasts a car rent service provider",
+  title: "Black Beasts - Car Rental Service Provider | Rent Cars Online | Self Drive Car rent | Sitamarhi",
+  description: "Black beasts, A car rent service provider with Self drive car rent in sitamarhi",
   alternates: {
     canonical: "https://www.blackbeasts.in/",
   },
@@ -53,6 +53,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+      <link rel="canonical" href="https://www.blackbeasts.in/" />
+      <link rel="alternate" href="https://www.blackbeasts.in/" hrefLang="en-in" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
