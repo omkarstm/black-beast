@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { useDispatch } from "react-redux"; // Import Redux dispatch
-import { useRouter } from "next/navigation"; // Use router for navigation
+import { useDispatch } from "react-redux"; 
+import { useRouter } from "next/navigation"; 
 import "../../styles/PriceCardPage.css";
 import carsData from "@/data/cardData";
 import { selectCar } from "@/redux/carSlice";
@@ -12,18 +12,17 @@ interface PriceCardProps {
 }
 
 const PriceCard: React.FC<PriceCardProps> = ({ category }) => {
-  const dispatch = useDispatch(); // Initialize dispatch
-  const router = useRouter(); // Initialize router for navigation
+  const dispatch = useDispatch();
+  const router = useRouter(); 
 
-  // Filter cars based on the category
+
   const selectedCars = category === "all"
     ? carsData.flatMap((data) => data.cars)
     : carsData.find((data) => data.category === category)?.cars || [];
 
-  // Handle car selection
   const handleCarClick = (car: any) => {
-    dispatch(selectCar(car)); // Dispatch car details to Redux
-    router.push(`/car-details/${car.name}`); // Navigate to the car details page
+    dispatch(selectCar(car));
+    router.push(`/car-details`); 
   };
 
   return (
