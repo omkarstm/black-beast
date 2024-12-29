@@ -17,11 +17,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
 
 const CarDetailsPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
-  const [rentalDuration, setRentalDuration] = useState(""); // State for rental duration
+  const [isModalOpen, setIsModalOpen] = useState(false);  
+  const [rentalDuration, setRentalDuration] = useState(""); 
   const selectedCar = useSelector((state: RootState) => state.car.selectedCar);
 
   if (!selectedCar) {
@@ -34,16 +33,28 @@ const CarDetailsPage = () => {
     );
   }
 
-  // Function to send WhatsApp message
   const handleSendWhatsApp = () => {
-    const phoneNumber = "9929974214"; // Replace with your WhatsApp number
+    const phoneNumber = "9929974214"; 
     const message = `Hello, I would like to book the car "${selectedCar.name}" for ${rentalDuration}`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-    // Open WhatsApp link in a new tab
     window.open(whatsappUrl, "_blank");
-    setIsModalOpen(false); // Close modal after sending
+    setIsModalOpen(false); 
   };
+
+
+  const availableDurations = selectedCar.isSelfDriveAvailable
+    ? [
+        { label: "3 hours", key: "threeHour", value: selectedCar.selfDrive?.threeHour },
+        { label: "6 hours", key: "sixHour", value: selectedCar.selfDrive?.sixHour },
+        { label: "12 hours", key: "twelveHour", value: selectedCar.selfDrive?.twelveHour },
+        { label: "1 day", key: "oneDayHour", value: selectedCar.selfDrive?.oneDayHour },
+      ].filter((option) => option.value) 
+    : [
+        { label: "1 day", key: "default1" },
+        { label: "2 days", key: "default2" },
+        { label: "3 days", key: "default3" },
+      ];
 
   return (
     <div className="container md:h-[70vh] lg:h-screen flex flex-col gap-6 items-center ">
@@ -55,31 +66,36 @@ const CarDetailsPage = () => {
         </div>
         <div className="lg:w-[400px] flex flex-col justify-center items-center md:items-start">
           <h3 className="font-semibold text-[20px]">Self Drive</h3>
-          <div className="flex gap-8">
-            <ul className="flex flex-col gap-4 my-6">
-              <li >24hr: {selectedCar.selfDrive.oneDayHour}</li>
-              <li>12hr: {selectedCar.selfDrive.twelveHour}</li>
-            </ul>
-            <ul className="flex flex-col gap-4 my-6">
-              <li>6hr: {selectedCar.selfDrive.sixHour}</li>
-              <li>3hr: {selectedCar.selfDrive.threeHour}</li>
-            </ul>
-          </div>
-          <ul className="">
-            {selectedCar.features.map((feature, index) => (
-              <li key={index} className="font-semibold">{feature}</li>
+          {selectedCar.isSelfDriveAvailable ? (
+            <div className="flex gap-8">
+              <ul className="flex flex-col gap-4 my-6">
+                {selectedCar.selfDrive?.oneDayHour && <li>24hr: {selectedCar.selfDrive?.oneDayHour}</li>}
+                {selectedCar.selfDrive?.twelveHour && <li>12hr: {selectedCar.selfDrive?.twelveHour}</li>}
+              </ul>
+              <ul className="flex flex-col gap-4 my-6">
+                {selectedCar.selfDrive?.sixHour && <li>6hr: {selectedCar.selfDrive?.sixHour}</li>}
+                {selectedCar.selfDrive?.threeHour && <li>3hr: {selectedCar.selfDrive?.threeHour}</li>}
+              </ul>
+            </div>
+          ) : (
+            <p className="mt-2 mb-4">Not for Self Drive</p>
+          )}
+          <ul>
+            <h4 className="font-bold mt-6 mb-4">Price With Driver</h4>
+            {selectedCar.withDriver.map((feature, index) => (
+              <li key={index} className="font-regular">{feature}</li>
             ))}
           </ul>
           <Button
             className="book-now-button w-fit px-20 mt-4"
-            onClick={() => setIsModalOpen(true)} // Open modal on click
+            onClick={() => setIsModalOpen(true)}
           >
             Book Now
           </Button>
         </div>
       </div>
 
-      {/* Modal for confirmation */}
+
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent>
           <DialogHeader>
@@ -87,19 +103,21 @@ const CarDetailsPage = () => {
           </DialogHeader>
           <p>How long do you want to rent the car <strong>{selectedCar.name}</strong>?</p>
 
-          {/* Dropdown for rental duration */}
+
           <div className="my-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild className="w-full">
                 <Button variant="outline">{rentalDuration || "Select Rental Duration"}</Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem onClick={() => setRentalDuration("3 hours")}>3 hours</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setRentalDuration("6 hours")}>6 hours</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setRentalDuration("12 hours")}>12 hours</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setRentalDuration("1 day")}>1 day</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setRentalDuration("2 days")}>2 days</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setRentalDuration("1 week")}>1 week</DropdownMenuItem>
+                {availableDurations.map((duration) => (
+                  <DropdownMenuItem key={duration.key} onClick={() => setRentalDuration(duration.label)}>
+                    {duration.label}
+                  </DropdownMenuItem>
+                ))}
+                 <DropdownMenuItem onClick={() => setRentalDuration("More days")}>
+                  More Days
+                 </DropdownMenuItem >
               </DropdownMenuContent>
             </DropdownMenu>
           </div>

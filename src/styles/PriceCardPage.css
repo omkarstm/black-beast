@@ -12,12 +12,14 @@
       flex-wrap: wrap;
       margin: 2rem 0;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
+      
       .car-card {
         background: #fff;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         border-radius: 10px;
         padding: 2rem;
+        max-width: 535px;
         .content-box {
           .left-box {
             .image-box {

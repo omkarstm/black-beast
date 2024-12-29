@@ -4,14 +4,16 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface Car {
   name: string;
   image: string;
-  features: string[];
-  selfDrive: {
-    oneDayHour: string;
-    twelveHour: string;
-    sixHour: string;
-    threeHour: string;
+  withDriver: string[];
+  isSelfDriveAvailable:boolean;
+  selfDrive?: {
+    oneDayHour?: string;
+    twelveHour?: string;
+    sixHour?: string;
+    threeHour?: string;
   };
 }
+
 
 interface CarState {
   selectedCar: Car | null;

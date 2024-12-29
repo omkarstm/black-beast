@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
             </div>
             <div className="flex gap-2">
               <MapPinCheckInside strokeWidth="1px" />
-              <p> Rampur Parori East Dumra Sitamarhi</p>
+              <p> Rampur Parori , Dumra Sitamarhi</p>
             </div>
             <div className="flex gap-2">
               <Instagram strokeWidth="1px" />

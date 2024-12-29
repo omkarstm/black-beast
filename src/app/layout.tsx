@@ -86,12 +86,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <script
+        {/* Add Favicon */}
+        <link rel="icon" href="/image/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="/image/favicon.svg" />
+        <link rel="apple-touch-icon" href="/image/apple-touch-icon.png" />
+        <link rel="manifest" href="/image/site.webmanifest" />
+
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-      <link rel="canonical" href="https://www.blackbeasts.in/" />
-      <link rel="alternate" href="https://www.blackbeasts.in/" hrefLang="en-in" />
+        <link rel="canonical" href="https://www.blackbeasts.in/" />
+        <link rel="alternate" href="https://www.blackbeasts.in/" hrefLang="en-in" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
